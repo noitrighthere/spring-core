@@ -1,5 +1,9 @@
 package hello.core.member;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
 public class MemberServiceImpl implements MemberService{
 
     // DIP에 위반
@@ -8,6 +12,7 @@ public class MemberServiceImpl implements MemberService{
     // 추상화에만 의존하게 됨 (DIP를 지킴)
     private final MemberRepository memberRepository;
 
+    @Autowired // 의존관계를 자동으로 주입
     public MemberServiceImpl(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
